@@ -168,4 +168,50 @@ httpRequest.send();
 
 
 
-//PUT /tasks/:id/mark_active
+//PUT /tasks/:id/mark_active: change "complete" property to false
+var httpRequest = new XMLHttpRequest();
+
+httpRequest.onload = function () {
+  if (httpRequest.readyState === XMLHttpRequest.DONE) {
+    if (httpRequest.status === 200) {
+      console.log(httpRequest.responseText);
+    } else {
+      console.log(httpRequest.statusText);
+    }
+  }
+};
+
+httpRequest.onerror = function () {
+  console.log(httpRequest.statusText);
+};
+
+httpRequest.open(
+  "PUT",
+  "https://altcademy-to-do-list-api.herokuapp.com/tasks/7483/mark_active?api_key=380"
+);
+
+httpRequest.send();
+
+//DELETE /tasks/:id : delete the specific task selected by the ID
+var httpRequest = new XMLHttpRequest();
+
+httpRequest.onload = function () {
+  if (httpRequest.readyState === XMLHttpRequest.DONE) {
+    if (httpRequest.status === 200) {
+      console.log(httpRequest.responseText);
+    } else {
+      console.log(httpRequest.statusText);
+    }
+  }
+};
+
+httpRequest.onerror = function () {
+  console.log(httpRequest.statusText);
+};
+
+httpRequest.open(
+  "DELETE",
+  "https://altcademy-to-do-list-api.herokuapp.com/tasks/7483?api_key=380"
+);
+
+httpRequest.send();
